@@ -1,6 +1,12 @@
 <template>
   <div class="map-wrapper">
-    <LMap ref="map" v-model:zoom="zoom" :center="[51.505, -0.09]" class="map">
+    <LMap
+      ref="map"
+      v-model:zoom="zoom"
+      :center="[51.505, -0.09]"
+      :use-global-leaflet="false"
+      class="map"
+    >
       <LTileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         layer-type="base"
@@ -62,7 +68,7 @@ watch(props, () => {
 
 <style scoped lang="scss">
 .map-wrapper {
-  height: 1000px;
+  height: calc(100vh - 50px - 32px - 32px);
 }
 
 .map {
